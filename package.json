@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "papaparse": "^5.5.2",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "vite": "^6.2.3"
+  }
+}
