@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '@/views/HomeBase.vue';
-import Products from '@/views/ProductsIdk.vue';
-import Admin from '@/views/AdminYou.vue';
+import Home from '@/views/Home.vue';
+import CartView from '@/views/CartView.vue';
+import AdminDashboard from '@/views/AdminDashboard.vue';
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/products', component: Products },
-  { path: '/admin', component: Admin },
+  { path: '/', name: 'Home', component: Home },
+  { path: '/cart', name: 'Cart', component: CartView },
+  { path: '/admin', name: 'Admin', component: AdminDashboard },
 ];
 
 const router = createRouter({
