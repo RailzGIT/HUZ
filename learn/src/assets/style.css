@@ -1,23 +1,25 @@
-/* Глобальные стили */
+/* Глобальні стилі */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-  }
-  
-  h1 {
-    color: #333;
-  }
-  
-  button {
-    cursor: pointer;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  button:hover {
-    opacity: 0.8;
-  }
-  
+  margin: 0;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Класи утиліти */
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}

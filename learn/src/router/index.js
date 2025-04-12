@@ -1,16 +1,36 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-// Імпорти сторінок
-import Home from '@/views/Home.vue';
-import CartView from '@/views/CartView.vue';
-import AdminDashboard from '@/views/AdminDashboard.vue';
+// Імпортуємо сторінки
+import LoginPage from '@/views/LoginPage.vue';
+import ProfilePage from '@/views/ProfilePage.vue';
 import ManageProducts from '@/views/ManageProducts.vue';
+import AdminDashboard from '@/views/AdminDashboard.vue';
 
 const routes = [
-  { path: '/', name: 'Home', component: Home },
-  { path: '/cart', name: 'Cart', component: CartView },
-  { path: '/admin', name: 'AdminDashboard', component: AdminDashboard },
-  { path: '/products', name: 'ManageProducts', component: ManageProducts }, // ✅ Додано!
+  {
+    path: '/',
+    redirect: '/login', // стартова сторінка
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginPage,
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: ProfilePage,
+  },
+  {
+    path: '/products',
+    name: 'ManageProducts',
+    component: ManageProducts,
+  },
+  {
+    path: '/admin',
+    name: 'AdminDashboard',
+    component: AdminDashboard,
+  },
 ];
 
 const router = createRouter({
