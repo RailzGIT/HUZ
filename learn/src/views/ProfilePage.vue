@@ -1,65 +1,53 @@
 <template>
-  <div class="profile-container">
-    <h2>👤 Профіль користувача</h2>
-
-    <div class="info-box">
-      <p><strong>Ім'я:</strong> {{ user.name }}</p>
-      <p><strong>Email:</strong> {{ user.email }}</p>
-      <button @click="logout">🚪 Вийти</button>
-    </div>
+  <div class="profile-page">
+    <h2>Адмін-панель</h2>
+    <p class="avatar">{{ userStore.avatar }}</p>
+    <p>Вітаємо, {{ userStore.username }}!</p>
+    <button @click="logout">Вийти</button>
   </div>
 </template>
 
 <script>
+import { useUserStore } from '@/store/user';
+
 export default {
-  data() {
-    return {
-      user: {
-        name: "Анна Коваленко",
-        email: "anna@example.com",
-      },
-    };
-  },
-  methods: {
-    logout() {
-      this.$router.push("/login");
-    },
+  setup() {
+    const userStore = useUserStore();
+
+    function logout() {
+      userStore.logout();
+      window.location.href = '/login';
+    }
+
+    if (!userStore.username) {
+      window.location.href = '/login';
+    }
+
+    return { userStore, logout };
   },
 };
 </script>
 
 <style scoped>
-.profile-container {
-  max-width: 600px;
-  margin: 40px auto;
-  background: #fff;
+.profile-page {
+  max-width: 500px;
+  margin: 60px auto;
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
-
-h2 {
-  margin-bottom: 20px;
-  color: #333;
+.avatar {
+  font-size: 64px;
+  margin-bottom: 15px;
 }
-
-.info-box p {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
 button {
-  margin-top: 20px;
-  padding: 10px 16px;
-  background-color: #007bff;
+  background-color: #d32f2f;
   color: white;
   border: none;
+  padding: 10px 25px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
 }
 </style>
