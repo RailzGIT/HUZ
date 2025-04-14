@@ -1,36 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
-
-// Імпортуємо сторінки
-import LoginPage from '@/views/LoginPage.vue';
-import ProfilePage from '@/views/ProfilePage.vue';
-import ManageProducts from '@/views/ManageProducts.vue';
-import AdminDashboard from '@/views/AdminDashboard.vue';
+import Home from '@/views/Home.vue';
+import Products from '@/views/Products.vue';
+import Admin from '@/views/Admin.vue';
+import ProfilePage from '@/pages/ProfilePage.vue';
+import LoginPage from '@/pages/LoginPage.vue';
 
 const routes = [
-  {
-    path: '/',
-    redirect: '/login', // стартова сторінка
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: LoginPage,
-  },
-  {
-    path: '/profile',
-    name: 'Profile',
-    component: ProfilePage,
-  },
-  {
-    path: '/products',
-    name: 'ManageProducts',
-    component: ManageProducts,
-  },
-  {
-    path: '/admin',
-    name: 'AdminDashboard',
-    component: AdminDashboard,
-  },
+  { path: '/', component: Home },
+  { path: '/products', component: Products },
+  { path: '/admin', component: Admin },
+  { path: '/profile', component: ProfilePage },
+  { path: '/login', component: LoginPage },
 ];
 
 const router = createRouter({
@@ -39,4 +19,3 @@ const router = createRouter({
 });
 
 export default router;
-
